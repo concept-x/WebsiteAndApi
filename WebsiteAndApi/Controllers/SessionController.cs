@@ -138,9 +138,9 @@ namespace DevSpace.Api.Controllers {
 					Mail.Body = string.Format(
 @"This message is to confirm the submission of your session: {0}.
 
-You may make changes to your session until June 24th.
+You may continue to make changes to your session until June 15th.
 
-You should receive an email with the status of your submission on or around July 1st.",
+You should receive an email with the status of your submission on or around June 20th.",
 						postedSession.Title );
 					Mail.Send();
 
@@ -154,9 +154,9 @@ You should receive an email with the status of your submission on or around July
 					Mail.Body = string.Format(
 @"This message is to confirm the update of your session: {0}.
 
-You may continue to make changes to your session until June 24th.
+You may continue to make changes to your session until June 15th.
 
-You should receive an email with the status of your submission on or around July 1st.",
+You should receive an email with the status of your submission on or around June 20th.",
 						postedSession.Title );
 					Mail.Send();
 
