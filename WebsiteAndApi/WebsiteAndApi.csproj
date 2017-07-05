@@ -130,6 +130,7 @@
     <Content Include="js\sponsor.js" />
     <Content Include="js\tickets.js" />
     <Content Include="login.html" />
+    <Content Include="login\html\index.html" />
     <Content Include="profile.html" />
     <Content Include="sessions.html" />
     <Content Include="speakers.html" />
