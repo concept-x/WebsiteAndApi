@@ -58,7 +58,8 @@ namespace DevSpace.Api.Controllers {
 
 		private async Task<string> CreateJsonUserArray( IList<IUser> Users ) {
 			Database.SessionDataStore SessionsDS = new Database.SessionDataStore();
-			IList<ISession> SessionList = ( await SessionsDS.GetAll() ).Where( ses => ses.Accepted ?? false ).ToList();
+			// HACK : forcing to current sessions
+			IList<ISession> SessionList = ( await SessionsDS.GetAll() ).Where( ses => ses.Id > 110 ).Where( ses => ses.Accepted ?? false ).ToList();
 
 			JArray JsonArray = new JArray();
 			foreach( IUser User in Users ) {
