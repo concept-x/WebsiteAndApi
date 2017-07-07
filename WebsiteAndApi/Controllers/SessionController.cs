@@ -26,7 +26,7 @@ namespace DevSpace.Api.Controllers {
 			SessionData["Id"] = session.Id;
 			SessionData["Title"] = session.Title;
 			SessionData["Abstract"] = session.Abstract;
-			SessionData["Room"] = session.Room.DisplayName;
+			SessionData["Room"] = session.Room?.DisplayName;
 			SessionData["SessionLength"] = session.SessionLength;
 
 			JArray Tags = new JArray();
@@ -55,9 +55,9 @@ namespace DevSpace.Api.Controllers {
 			// Yes, that will have to be address before other confs start using this
 			// No, I don't have time to do it right now.
 			JObject TimeSlotData = new JObject();
-			TimeSlotData["StartTime"] = session.TimeSlot.StartTime;
-			TimeSlotData["EndTime"] = session.TimeSlot.EndTime;
-			TimeSlotData["DisplayDateTime"] = TimeZoneInfo.ConvertTimeFromUtc( session.TimeSlot.StartTime, timeZone ).ToString( "dddd, MMMM dd a\\t h:mm tt" );
+			TimeSlotData["StartTime"] = session.TimeSlot?.StartTime;
+			TimeSlotData["EndTime"] = session.TimeSlot?.EndTime;
+			TimeSlotData["DisplayDateTime"] = TimeZoneInfo.ConvertTimeFromUtc( session.TimeSlot?.StartTime ?? DateTime.UtcNow, timeZone ).ToString( "dddd, MMMM dd a\\t h:mm tt" );
 
 			SessionData["TimeSlot"] = TimeSlotData;
 
@@ -81,7 +81,7 @@ namespace DevSpace.Api.Controllers {
 				IList<ISession> Sessions = ( await _DataStore.GetAll() ).Where( ses => ses.Id > 110 ).Where( ses => ses.Accepted ?? false ).ToList();
 
 				HttpResponseMessage Response = new HttpResponseMessage( HttpStatusCode.OK );
-				Response.Content = new StringContent( await Task.Factory.StartNew( () => JsonConvert.SerializeObject( Sessions.OrderBy( ses => ses.Title ), Formatting.None ) ) ); // new StringContent( await CreateJsonSessionArray( Sessions.OrderBy( ses => ses.Room.Id ).OrderBy( ses => ses.TimeSlot.StartTime ).ToList() ) ); // 
+				Response.Content = new StringContent( await CreateJsonSessionArray( Sessions.OrderBy( ses => ses.Title ).ToList() ) ); // new StringContent( await CreateJsonSessionArray( Sessions.OrderBy( ses => ses.Room.Id ).OrderBy( ses => ses.TimeSlot.StartTime ).ToList() ) ); // 
 				return Response;
 			} catch {
 				return new HttpResponseMessage( HttpStatusCode.InternalServerError );
