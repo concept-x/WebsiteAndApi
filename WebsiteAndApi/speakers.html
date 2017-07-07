@@ -11,15 +11,7 @@
 	<!-- #include file="menu.shtml" -->
 
 	<section id="Content">
-		<article>
-			<h1>Call for Speakers Is Closed</h1>
-			<p>
-				The call for speakers is officially closed.
-                Please check back soon for the official session lineup.
-			</p>
-		</article>
-
-		<section data-bind="foreach: Profiles" style="display: none;">
+		<section data-bind="foreach: Profiles">
 			<article>
 				<h1 data-bind="text: DisplayName"></h1>
 				<p data-bind="text: Bio"></p>
