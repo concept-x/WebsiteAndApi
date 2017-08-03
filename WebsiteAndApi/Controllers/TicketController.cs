@@ -134,9 +134,9 @@ This code is tied to your email address is a valid for one use. If you misplace 
 
 You may go directly to out ticketing page using the link below.
  
-https://www.eventbrite.com/e/devspace-2016-registration-24347789895?access={0}
+https://devspace.eventbrite.com?discount={0}
 
-If you wish, you may also go directly to EventBrite, find out event, and manually enter the code:
+If you wish, you may also go directly to EventBrite, find our event, and manually enter the code:
 
 {0}
 
