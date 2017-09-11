@@ -25,7 +25,11 @@ function Profile(data) {
 	if (data) {
 		Self.Id(data.Id);
 		Self.DisplayName(data.DisplayName);
-		Self.Bio(data.Bio);
+
+		if (data.Bio) {
+		    var displayBio = data.Bio.replace(/(?:\r\n|\r|\n)/g, '<br />');
+		    Self.Bio(displayBio);
+		}
 
 		if (data.Twitter)
 			if (data.Twitter[0] != '@')
