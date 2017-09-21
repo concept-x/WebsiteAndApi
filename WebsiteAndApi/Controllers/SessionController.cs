@@ -77,11 +77,14 @@ namespace DevSpace.Api.Controllers {
 		[AllowAnonymous]
 		public async Task<HttpResponseMessage> Get() {
 			try {
-				// HACK: This explicitly limits to this years submission by Id...
-				IList<ISession> Sessions = ( await _DataStore.GetAll() ).Where( ses => ses.Id > 110 ).Where( ses => ses.Accepted ?? false ).ToList();
+				IList<ISession> Sessions = ( await _DataStore.GetAll() )
+					.Where( ses => ses.Accepted ?? false )
+					.Where( ses => ( ses.TimeSlot?.EndTime ?? DateTime.MaxValue ) > DateTime.UtcNow )
+					.OrderBy( ses => ( ses.TimeSlot?.EndTime ?? DateTime.MaxValue ) )
+					.ToList();
 
 				HttpResponseMessage Response = new HttpResponseMessage( HttpStatusCode.OK );
-				Response.Content = new StringContent( await CreateJsonSessionArray( Sessions.OrderBy( ses => ses.Title ).ToList() ) ); // new StringContent( await CreateJsonSessionArray( Sessions.OrderBy( ses => ses.Room.Id ).OrderBy( ses => ses.TimeSlot.StartTime ).ToList() ) ); // 
+				Response.Content = new StringContent( await CreateJsonSessionArray( Sessions ) ); // new StringContent( await CreateJsonSessionArray( Sessions.OrderBy( ses => ses.Room.Id ).OrderBy( ses => ses.TimeSlot.StartTime ).ToList() ) ); // 
 				return Response;
 			} catch {
 				return new HttpResponseMessage( HttpStatusCode.InternalServerError );
@@ -103,8 +106,11 @@ namespace DevSpace.Api.Controllers {
 		[Route( "api/v1/session/tag/{Id}" )]
 		public async Task<HttpResponseMessage> GetSessionsByTag( int Id ) {
 			try {
-				// HACK: This explicitly limits to this years submission by Id...
-				IList<ISession> Sessions = ( await _DataStore.GetAll() ).Where( ses => ses.Id > 110 ).Where( ses => ses.Accepted ?? false ).ToList();
+				IList<ISession> Sessions = ( await _DataStore.GetAll() )
+					.Where( ses => ses.Accepted ?? false )
+					.Where( ses => ( ses.TimeSlot?.EndTime ?? DateTime.MaxValue ) > DateTime.UtcNow )
+					.OrderBy( ses => ( ses.TimeSlot?.EndTime ?? DateTime.MaxValue ) )
+					.ToList();
 
 				HttpResponseMessage Response = new HttpResponseMessage( HttpStatusCode.OK );
 				Response.Content = new StringContent( await CreateJsonSessionArray( Sessions.Where( ses => ses.Tags.ToDictionary( tag => tag.Id ).ContainsKey( Id ) ).OrderBy( ses => ses.Title ).ToList() ) ); // new StringContent( await Task.Factory.StartNew( () => JsonConvert.SerializeObject( Sessions.OrderBy( ses => ses.Title ), Formatting.None ) ) );
