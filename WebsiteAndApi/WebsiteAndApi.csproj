@@ -111,6 +111,7 @@
     <Content Include="images\logos\large\foundry-400.jpg" />
     <Content Include="images\logos\large\novation_systems_400.png" />
     <Content Include="images\logos\large\OpenShift.png" />
+    <Content Include="images\logos\large\phocaz.png" />
     <Content Include="images\logos\large\PluralSight.png" />
     <Content Include="images\logos\large\progress.png" />
     <Content Include="images\logos\large\ResultStack.png" />
@@ -128,6 +129,7 @@
     <Content Include="images\logos\small\foundry-200.jpg" />
     <Content Include="images\logos\small\novation_systems_200.png" />
     <Content Include="images\logos\small\OpenShift.png" />
+    <Content Include="images\logos\small\phocaz.png" />
     <Content Include="images\logos\small\PluralSight-Small.png" />
     <Content Include="images\logos\small\progress.png" />
     <Content Include="images\logos\small\ResultStack.png" />
