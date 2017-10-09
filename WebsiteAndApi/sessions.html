@@ -11,12 +11,22 @@
 	<!-- #include file="menu.shtml" -->
 
 	<section id="Content">
+		<article>
+			<h1>Agenda and Printable Schedule</h1>
+			<p>
+				We now have a full agenda ready.
+				This agenda has all necessary CSS to print to one double-sided page.
+				It will also update if things get moved around.
+				You can view it a <a href="/schedule.html">https://www.devspaceconf.com/schedule.html</a>.
+			</p>
+		</article>
+
 		<section data-bind="foreach: Sessions">
 			<article>
 				<h1 data-bind="text: Title"></h1>
 				<p data-bind="html: Abstract"></p>
 
-				<!--h2 data-bind="text: Room"></h2 -->
+				<h2 data-bind="text: Room"></h2>
 				<h2 data-bind="text: TimeSlot().DisplayDateTime"></h2>
 				<h2>Speaker: <a data-bind="text: Speaker().DisplayName, attr: { href: Speaker().Link }"></a></h2>
 				<h2>Tags: <!-- ko foreach: Tags --><a data-bind="text: Text, attr: { href: Link }"></a>; <!-- /ko --></h2>

@@ -29,6 +29,9 @@ namespace DevSpace.Api.Controllers {
 			SessionData["Room"] = session.Room?.DisplayName;
 			SessionData["SessionLength"] = session.SessionLength;
 
+			SessionData["RoomId"] = session.Room?.Id;
+			SessionData["TimeSlotId"] = session.TimeSlot?.Id;
+
 			JArray Tags = new JArray();
 			foreach( ITag tag in session.Tags ) {
 				JObject jtag = new JObject();
@@ -81,6 +84,7 @@ namespace DevSpace.Api.Controllers {
 					.Where( ses => ses.Accepted ?? false )
 					.Where( ses => ( ses.TimeSlot?.EndTime ?? DateTime.MaxValue ) > DateTime.UtcNow )
 					.OrderBy( ses => ( ses.TimeSlot?.EndTime ?? DateTime.MaxValue ) )
+					.ThenBy( ses => ( ses.Room?.DisplayName ?? string.Empty ) )
 					.ToList();
 
 				HttpResponseMessage Response = new HttpResponseMessage( HttpStatusCode.OK );
@@ -110,6 +114,7 @@ namespace DevSpace.Api.Controllers {
 					.Where( ses => ses.Accepted ?? false )
 					.Where( ses => ( ses.TimeSlot?.EndTime ?? DateTime.MaxValue ) > DateTime.UtcNow )
 					.OrderBy( ses => ( ses.TimeSlot?.EndTime ?? DateTime.MaxValue ) )
+					.ThenBy( ses => ( ses.Room?.DisplayName ?? string.Empty ) )
 					.ToList();
 
 				HttpResponseMessage Response = new HttpResponseMessage( HttpStatusCode.OK );
