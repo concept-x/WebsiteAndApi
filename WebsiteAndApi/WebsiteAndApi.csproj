@@ -96,6 +96,7 @@
     <Content Include="2016\sessions.html" />
     <Content Include="conduct.html" />
     <Content Include="blog.html" />
+    <Content Include="Files\sponsors.png" />
     <Content Include="Global.asax" />
     <Content Include="images\ajax-loader.gif" />
     <Content Include="images\DevSpace_ForWeb_400wide.png" />
