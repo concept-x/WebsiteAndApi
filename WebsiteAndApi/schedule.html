@@ -1,0 +1,504 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<!-- #include file="head.shtml" -->
+	<meta property="og:url" content="https://www.devspaceconf.com/schedule" />
+	<script type="text/javascript" src="/js/schedule.js" defer></script>
+	<style>
+		.Keynote {
+			text-align: center;
+			vertical-align: middle;
+			background-color: orange;
+			border: 2px solid black;
+		}
+
+		.Session30 {
+			text-align: center;
+			vertical-align: middle;
+			background-color: lightcyan;
+			border: 2px solid black;
+		}
+
+		.Session60 {
+			text-align: center;
+			vertical-align: middle;
+			background-color: lightblue;
+			border: 2px solid black;
+		}
+
+		.Lunch {
+			text-align: center;
+			vertical-align: middle;
+			background-color: lightgray;
+			border: 2px solid black;
+		}
+
+		.TableLabel {
+			color: white;
+			font-size: x-large;
+			text-align: center;
+
+			padding-top: 10px;
+			padding-bottom: 10px;
+			vertical-align: middle;
+			background-color: blue;
+		}
+	</style>
+</head>
+
+<body>
+	<!-- #include file="menu.shtml" -->
+
+	<section id="Content">
+		<article>
+			<h1>Friday</h1>
+			<table>
+				<colgroup>
+					<col width="150" />
+					<col width="150" />
+					<col width="150" />
+					<col width="150" />
+					<col width="150" />
+					<col width="150" />
+				</colgroup>
+				<thead>
+					<tr>
+						<td class="TableLabel">Time</td>
+						<td class="TableLabel">Ballroom 1</td>
+						<td class="TableLabel">Ballroom 2</td>
+						<td class="TableLabel">Ballroom 3</td>
+						<td class="TableLabel">Ballroom 4</td>
+						<td class="TableLabel">Ballroom 5</td>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- Friday 0800 -->
+					<tr>
+						<td class="TableLabel">8:00 AM</td>
+						<td rowspan="7" colspan="2"></td>
+						<td class="Keynote" rowspan="7" data-bind="text: GetTitle( 3, 13 )">Keynote</td>
+						<td rowspan="7" colspan="2"></td>
+					</tr>
+					<tr>
+						<td class="TableLabel">8:15 AM</td>
+					</tr>
+					<tr>
+						<td class="TableLabel">8:30 AM</td>
+					</tr>
+					<tr>
+						<td class="TableLabel">8:45 AM</td>
+					</tr>
+					<!-- Friday 0900 -->
+					<tr>
+						<td class="TableLabel">9:00 AM</td>
+					</tr>
+					<tr>
+						<td class="TableLabel">9:15 AM</td>
+					</tr>
+					<tr>
+						<td class="TableLabel">9:30 AM</td>
+					</tr>
+					<tr>
+						<td class="TableLabel">9:45 AM</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<!-- Friday 1000 -->
+					<tr>
+						<td class="TableLabel">10:00 AM</td>
+						<td class="Session60" rowspan="4" data-bind="text: GetTitle( 1, 14 )">Session</td>
+						<td class="Session60" rowspan="4" data-bind="text: GetTitle( 2, 14 )">Session</td>
+						<td class="Session60" rowspan="4" data-bind="text: GetTitle( 3, 14 )">Session</td>
+						<td class="Session60" rowspan="4" data-bind="text: GetTitle( 4, 14 )">Session</td>
+						<td class="Session60" rowspan="4" data-bind="text: GetTitle( 5, 14 )">Session</td>
+					</tr>
+					<tr>
+						<td class="TableLabel">10:15 AM</td>
+					</tr>
+					<tr>
+						<td class="TableLabel">10:30 AM</td>
+					</tr>
+					<tr>
+						<td class="TableLabel">10:45 AM</td>
+					</tr>
+					<!-- Friday 1100 -->
+					<tr>
+						<td class="TableLabel">11:00 AM</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="TableLabel">11:15 AM</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="TableLabel">11:30 AM</td>
+						<td class="Session30" rowspan="2" data-bind="text: GetTitle( 1, 15 )">Session</td>
+						<td class="Session30" rowspan="2" data-bind="text: GetTitle( 2, 15 )">Session</td>
+						<td class="Session30" rowspan="2" data-bind="text: GetTitle( 3, 15 )">Session</td>
+						<td class="Session30" rowspan="2" data-bind="text: GetTitle( 4, 15 )">Session</td>
+						<td class="Session30" rowspan="2" data-bind="text: GetTitle( 5, 15 )">Session</td>
+					</tr>
+					<tr>
+						<td class="TableLabel">11:45 AM</td>
+					</tr>
+					<!-- Friday 1200 -->
+					<tr>
+						<td class="TableLabel">12:00 PM</td>
+						<td class="Lunch" rowspan="4" colspan="5">Lunch</td>
+					</tr>
+					<tr>
+						<td class="TableLabel">12:15 PM</td>
+					</tr>
+					<tr>
+						<td class="TableLabel">12:30 PM</td>
+					</tr>
+					<tr>
+						<td class="TableLabel">12:45 PM</td>
+					</tr>
+					<!-- Friday 1300 -->
+					<tr>
+						<td class="TableLabel">1:00 PM</td>
+						<td class="Session60" rowspan="4" data-bind="text: GetTitle( 1, 16 )">Session</td>
+						<td class="Session60" rowspan="4" data-bind="text: GetTitle( 2, 16 )">Session</td>
+						<td class="Session60" rowspan="4" data-bind="text: GetTitle( 3, 16 )">Session</td>
+						<td class="Session60" rowspan="4" data-bind="text: GetTitle( 4, 16 )">Session</td>
+						<td class="Session60" rowspan="4" data-bind="text: GetTitle( 5, 16 )">Session</td>
+					</tr>
+					<tr>
+						<td class="TableLabel">1:15 PM</td>
+					</tr>
+					<tr>
+						<td class="TableLabel">1:30 PM</td>
+					</tr>
+					<tr>
+						<td class="TableLabel">1:45 PM</td>
+					</tr>
+					<!-- Friday 1400 -->
+					<tr>
+						<td class="TableLabel">2:00 PM</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="TableLabel">2:15 PM</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="TableLabel">2:30 PM</td>
+						<td class="Session60" rowspan="4" data-bind="text: GetTitle( 1, 17 )">Session</td>
+						<td class="Session60" rowspan="4" data-bind="text: GetTitle( 2, 17 )">Session</td>
+						<td class="Session60" rowspan="4" data-bind="text: GetTitle( 3, 17 )">Session</td>
+						<td class="Session60" rowspan="4" data-bind="text: GetTitle( 4, 17 )">Session</td>
+						<td class="Session60" rowspan="4" data-bind="text: GetTitle( 5, 17 )">Session</td>
+					</tr>
+					<tr>
+						<td class="TableLabel">2:45 PM</td>
+					</tr>
+					<!-- Friday 1500 -->
+					<tr>
+						<td class="TableLabel">3:00 PM</td>
+					</tr>
+					<tr>
+						<td class="TableLabel">3:15 PM</td>
+					</tr>
+					<tr>
+						<td class="TableLabel">3:30 PM</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="TableLabel">3:45 PM</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<!-- Friday 1600 -->
+					<tr>
+						<td class="TableLabel">4:00 PM</td>
+						<td class="Session60" rowspan="4" data-bind="text: GetTitle( 1, 18 )">Session</td>
+						<td class="Session60" rowspan="4" data-bind="text: GetTitle( 2, 18 )">Session</td>
+						<td class="Session60" rowspan="4" data-bind="text: GetTitle( 3, 18 )">Session</td>
+						<td class="Session60" rowspan="4" data-bind="text: GetTitle( 4, 18 )">Session</td>
+						<td class="Session60" rowspan="4" data-bind="text: GetTitle( 5, 18 )">Session</td>
+					</tr>
+					<tr>
+						<td class="TableLabel">4:15 PM</td>
+					</tr>
+					<tr>
+						<td class="TableLabel">4:30 PM</td>
+					</tr>
+					<tr>
+						<td class="TableLabel">4:45 PM</td>
+					</tr>
+				</tbody>
+			</table>
+		</article>
+		<article>
+			<h1>Saturday</h1>
+			<table>
+				<colgroup>
+					<col width="150" />
+					<col width="150" />
+					<col width="150" />
+					<col width="150" />
+					<col width="150" />
+					<col width="150" />
+				</colgroup>
+				<thead>
+					<tr>
+						<td class="TableLabel">Time</td>
+						<td class="TableLabel">Ballroom 1</td>
+						<td class="TableLabel">Ballroom 2</td>
+						<td class="TableLabel">Ballroom 3</td>
+						<td class="TableLabel">Ballroom 4</td>
+						<td class="TableLabel">Ballroom 5</td>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- Saturday 0800 -->
+					<tr>
+						<td class="TableLabel">8:00 AM</td>
+						<td class="Session60" rowspan="4" data-bind="text: GetTitle( 1, 19 )">Session</td>
+						<td class="Session60" rowspan="4" data-bind="text: GetTitle( 2, 19 )">Session</td>
+						<td class="Session60" rowspan="4" data-bind="text: GetTitle( 3, 19 )">Session</td>
+						<td class="Session60" rowspan="4" data-bind="text: GetTitle( 4, 19 )">Session</td>
+						<td class="Session60" rowspan="4" data-bind="text: GetTitle( 5, 19 )">Session</td>
+					</tr>
+					<tr>
+						<td class="TableLabel">8:15 AM</td>
+					</tr>
+					<tr>
+						<td class="TableLabel">8:30 AM</td>
+					</tr>
+					<tr>
+						<td class="TableLabel">8:45 AM</td>
+					</tr>
+					<!-- Saturday 0900 -->
+					<tr>
+						<td class="TableLabel">9:00 AM</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="TableLabel">9:15 AM</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="TableLabel">9:30 AM</td>
+						<td class="Session60" rowspan="4" data-bind="text: GetTitle( 1, 20 )">Session</td>
+						<td class="Session60" rowspan="4" data-bind="text: GetTitle( 2, 20 )">Session</td>
+						<td class="Session60" rowspan="4" data-bind="text: GetTitle( 3, 20 )">Session</td>
+						<td class="Session60" rowspan="4" data-bind="text: GetTitle( 4, 20 )">Session</td>
+						<td class="Session60" rowspan="4" data-bind="text: GetTitle( 5, 20 )">Session</td>
+					</tr>
+					<tr>
+						<td class="TableLabel">9:45 AM</td>
+					</tr>
+					<!-- Saturday 1000 -->
+					<tr>
+						<td class="TableLabel">10:00 AM</td>
+					</tr>
+					<tr>
+						<td class="TableLabel">10:15 AM</td>
+					</tr>
+					<tr>
+						<td class="TableLabel">10:30 AM</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="TableLabel">10:45 AM</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<!-- Saturday 1100 -->
+					<tr>
+						<td class="TableLabel">11:00 AM</td>
+						<td class="Session60" rowspan="4" data-bind="text: GetTitle( 1, 21 )">Session</td>
+						<td class="Session60" rowspan="4" data-bind="text: GetTitle( 2, 21 )">Session</td>
+						<td class="Session60" rowspan="4" data-bind="text: GetTitle( 3, 21 )">Session</td>
+						<td class="Session60" rowspan="4" data-bind="text: GetTitle( 4, 21 )">Session</td>
+						<td class="Session60" rowspan="4" data-bind="text: GetTitle( 5, 21 )">Session</td>
+					</tr>
+					<tr>
+						<td class="TableLabel">11:15 AM</td>
+					</tr>
+					<tr>
+						<td class="TableLabel">11:30 AM</td>
+					</tr>
+					<tr>
+						<td class="TableLabel">11:45 AM</td>
+					</tr>
+					<!-- Saturday 1200 -->
+					<tr>
+						<td class="TableLabel">12:00 PM</td>
+						<td class="Lunch" rowspan="4" colspan="5">Lunch</td>
+					</tr>
+					<tr>
+						<td class="TableLabel">12:15 PM</td>
+					</tr>
+					<tr>
+						<td class="TableLabel">12:30 PM</td>
+					</tr>
+					<tr>
+						<td class="TableLabel">12:45 PM</td>
+					</tr>
+					<!-- Saturday 1300 -->
+					<tr>
+						<td class="TableLabel">1:00 PM</td>
+						<td class="Session30" rowspan="2" data-bind="text: GetTitle( 1, 22 )">Session</td>
+						<td class="Session30" rowspan="2" data-bind="text: GetTitle( 2, 22 )">Session</td>
+						<td class="Session30" rowspan="2" data-bind="text: GetTitle( 3, 22 )">Session</td>
+						<td class="Session30" rowspan="2" data-bind="text: GetTitle( 4, 22 )">Session</td>
+						<td class="Session30" rowspan="2" data-bind="text: GetTitle( 5, 22 )">Session</td>
+					</tr>
+					<tr>
+						<td class="TableLabel">1:15 PM</td>
+					</tr>
+					<tr>
+						<td class="TableLabel">1:30 PM</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="TableLabel">1:45 PM</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<!-- Saturday 1400 -->
+					<tr>
+						<td class="TableLabel">2:00 PM</td>
+						<td class="Session60" rowspan="4" data-bind="text: GetTitle( 1, 23 )">Session</td>
+						<td class="Session60" rowspan="4" data-bind="text: GetTitle( 2, 23 )">Session</td>
+						<td class="Session60" rowspan="4" data-bind="text: GetTitle( 3, 23 )">Session</td>
+						<td class="Session60" rowspan="4" data-bind="text: GetTitle( 4, 23 )">Session</td>
+						<td class="Session60" rowspan="4" data-bind="text: GetTitle( 5, 23 )">Session</td>
+					</tr>
+					<tr>
+						<td class="TableLabel">2:15 PM</td>
+					</tr>
+					<tr>
+						<td class="TableLabel">2:30 PM</td>
+					</tr>
+					<tr>
+						<td class="TableLabel">2:45 PM</td>
+					</tr>
+					<!-- Saturday 1500 -->
+					<tr>
+						<td class="TableLabel">3:00 PM</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="TableLabel">3:15 PM</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="TableLabel">3:30 PM</td>
+						<td class="Session60" rowspan="4" data-bind="text: GetTitle( 1, 24 )">Session</td>
+						<td class="Session60" rowspan="4" data-bind="text: GetTitle( 2, 24 )">Session</td>
+						<td class="Session60" rowspan="4" data-bind="text: GetTitle( 3, 24 )">Session</td>
+						<td class="Session60" rowspan="4" data-bind="text: GetTitle( 4, 24 )">Session</td>
+						<td class="Session60" rowspan="4" data-bind="text: GetTitle( 5, 24 )">Session</td>
+					</tr>
+					<tr>
+						<td class="TableLabel">3:45 PM</td>
+					</tr>
+					<!-- Saturday 1600 -->
+					<tr>
+						<td class="TableLabel">4:00 PM</td>
+					</tr>
+					<tr>
+						<td class="TableLabel">4:15 PM</td>
+					</tr>
+					<tr>
+						<td class="TableLabel">4:30 PM</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="TableLabel">4:45 PM</td>
+						<td></td>
+						<td></td>
+						<td class="Keynote" rowspan="3" data-bind="text: GetTitle( 3, 25 )">Closing Session</td>
+						<td></td>
+						<td></td>
+					</tr>
+					<!-- Saturday 1700 -->
+					<tr>
+						<td class="TableLabel">5:00 PM</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="TableLabel">5:15 PM</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+		</article>
+	</section>
+
+	<!-- #include file="leftSidebar.shtml" -->
+	<!-- #include file="rightSidebar.shtml" -->
+</body>
+
+</html>

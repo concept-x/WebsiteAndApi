@@ -29,6 +29,9 @@ namespace DevSpace.Api.Controllers {
 			SessionData["Room"] = session.Room?.DisplayName;
 			SessionData["SessionLength"] = session.SessionLength;
 
+			SessionData["RoomId"] = session.Room?.Id;
+			SessionData["TimeSlotId"] = session.TimeSlot?.Id;
+
 			JArray Tags = new JArray();
 			foreach( ITag tag in session.Tags ) {
 				JObject jtag = new JObject();
