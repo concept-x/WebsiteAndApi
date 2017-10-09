@@ -96,6 +96,7 @@
     <Content Include="2016\sessions.html" />
     <Content Include="conduct.html" />
     <Content Include="blog.html" />
+    <Content Include="Files\sponsors.png" />
     <Content Include="Global.asax" />
     <Content Include="images\ajax-loader.gif" />
     <Content Include="images\DevSpace_ForWeb_400wide.png" />
@@ -146,6 +147,7 @@
     <Content Include="index.html" />
     <Content Include="js\login.js" />
     <Content Include="js\profile.js" />
+    <Content Include="js\schedule.js" />
     <Content Include="js\sessions.js" />
     <Content Include="js\speakers.js" />
     <Content Include="js\sponsor.js" />
@@ -153,6 +155,7 @@
     <Content Include="login.html" />
     <Content Include="login\html\index.html" />
     <Content Include="profile.html" />
+    <Content Include="schedule.html" />
     <Content Include="sessions.html" />
     <Content Include="speakers.html" />
     <Content Include="sponsors.html" />
