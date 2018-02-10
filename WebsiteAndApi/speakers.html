@@ -14,7 +14,7 @@
 		<section data-bind="foreach: Profiles">
 			<article>
 				<h1 data-bind="text: DisplayName"></h1>
-				<p data-bind="text: Bio"></p>
+				<p data-bind="html: Bio"></p>
 				<!-- ko if: Twitter || Website -->
 				<p>
 					<!-- ko if: Twitter -->

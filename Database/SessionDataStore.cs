@@ -138,7 +138,7 @@ namespace DevSpace.Database {
 
 		public async Task<IList<ISession>> GetAll() {
 			List<ISession> returnList = new List<ISession>();
-			List<ISession> sessionList = new List<ISession>();
+			List<Models.SessionModel> sessionList = new List<Models.SessionModel>();
 
 			TimeSlotDataStore timeSlots = new TimeSlotDataStore();
 			IList<ITimeSlot> timeSlotList = await timeSlots.GetAll();
@@ -167,10 +167,10 @@ namespace DevSpace.Database {
 				}
 
 				ISession sessionWithTags = null;
-				foreach( ISession session in sessionList ) {
+				foreach( Models.SessionModel session in sessionList ) {
 					sessionWithTags = session
-						.UpdateTimeSlot( timeSlotList.FirstOrDefault( ts => ts.Id == ( session as Models.SessionModel ).TimeSlotId ) )
-						.UpdateRoom( roomList.FirstOrDefault( r => r.Id == ( session as Models.SessionModel ).RoomId ) );
+						.UpdateTimeSlot( timeSlotList.FirstOrDefault( ts => ts.Id == session.TimeSlotId ) )
+						.UpdateRoom( roomList.FirstOrDefault( r => r.Id == session.RoomId ) );
 
 					foreach( Tuple<int, ITag> Tag in TagData.Where( data => data.Item1 == session.Id ) ) {
 						sessionWithTags = sessionWithTags.AddTag( Tag.Item2 );
