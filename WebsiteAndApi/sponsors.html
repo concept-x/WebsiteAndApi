@@ -13,10 +13,10 @@
 
 		<article>
 			<h1>Sponsorship opportunities are available</h1>
-			<p>For more information, download our <a href="Files/Prospectus.pdf">Sponsorship Prospectus</a> or email <a href="mailto:info@devspaceconf.com?subject=DevSpace%20Sponsorships">info@devspaceconf.com</a>.</p>
+			<p>For more information, <!-- download our <a href="Files/Prospectus.pdf">Sponsorship Prospectus</a> or --> email <a href="mailto:info@devspaceconf.com?subject=DevSpace%20Sponsorships">info@devspaceconf.com</a>.</p>
 		</article>
 
-		<article id="MainSponsorElement" data-bind="foreach: SponsorLevels">
+		<article id="MainSponsorElement" data-bind="foreach: SponsorLevels" style="display: none;">
 			<h1 data-bind="text: DisplayName"></h1>
 			<!-- ko foreach: Sponsors -->
 			<p style="text-align: center;">

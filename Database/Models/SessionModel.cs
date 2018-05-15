@@ -33,6 +33,7 @@ namespace DevSpace.Database.Models {
 		public string Title { get; internal set; }
 		public int UserId { get; internal set; }
 		public int SessionLength { get; internal set; }
+		public ITag Level { get; internal set; }
 
 		public int TimeSlotId { get; internal set; }
 		public ITimeSlot TimeSlot { get; internal set; }
@@ -73,6 +74,12 @@ namespace DevSpace.Database.Models {
 		public ISession UpdateSessionLength( int value ) {
 			SessionModel newSession = this.Clone();
 			newSession.SessionLength = value;
+			return newSession;
+		}
+
+		public ISession UpdateLevel( ITag value ) {
+			SessionModel newSession = this.Clone();
+			newSession.Level = value;
 			return newSession;
 		}
 
@@ -126,6 +133,7 @@ namespace DevSpace.Database.Models {
 				Title = string.Copy( this.Title ),
 				Abstract = string.Copy( this.Abstract ),
 				SessionLength = this.SessionLength,
+				Level = this.Level,
 				Accepted = this.Accepted,
 				Tags = this.Tags?.ToImmutableList(),
 				TimeSlotId = this.TimeSlotId,

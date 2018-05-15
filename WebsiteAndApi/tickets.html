@@ -16,7 +16,7 @@
 			<p>
 				DevSpace uses EventBrite for our tickets and PayPal as our payment processor.
 				This gives you security you can trust.
-				To access our EventBrite page for 2017, just press the stupidly large button below.
+				To access our EventBrite page for 2018, just press the stupidly large button below.
 			</p>
 			<input type="button" onclick="window.location.href = 'https://devspace.eventbrite.com/';" value="Get Tickets From EventBrite" />
 		</article>
@@ -30,24 +30,24 @@
 			</p>
 			<p>
 				We are currently offering a limited number of Super Early Bird Tickets.
-				These tickets are going for the super affordable price of $75.
-				These will be available until they either sell out or we start announcing  some details.
+				These tickets are going for the super affordable price of $100.
+				These will be available until they either sell out or we start announcing some details.
 			</p>
 			<p>
 				Once the Super Early bird tickets are gone, we will start selling Early Bird Tickets.
-				These tickets are going for the not quite super affordable but still very affordable price of $100.
-				These will be available until they either sell out or we announce  all the details.
+				These tickets are going for the not quite super affordable but still very affordable price of $125.
+				These will be available until they either sell out or we announce all the details.
 			</p>
 			<p>
 				Once the Early Bird tickets are gone, we will have standard tickets.
 				They are so standard, I didn't even upper case the word ticket.
-				These tickets are going for the not quite very affordable but still affordable price of $125.
+				These tickets are going for the not quite very affordable but still affordable price of $150.
 			</p>
 			<p>
 				Finally, once once we get too close to the event, we will have late tickets.
 				Late tickets are the same as standard tickets, but cost more.
 				This is because I have to make projections on ticket sales that may or may not happen in the last 2 weeks.
-				These tickets are going for the still affordable but annoyingly increased price of $150.
+				These tickets are going for the still affordable but annoyingly increased price of $200.
 			</p>
 			<p>
 				There will also be a limited number of Student Tickets.
@@ -56,20 +56,26 @@
 				Oh, and the fact that there are only 25 of them.
 			</p>
 		</article>
-		<article>
-			<h1>Student Tickets</h1>
-			<p>
-				To receive an access code for a student ticket, enter your email address in the field below.
-				We will verify the email address and send you the access code.
-				Further instructions will be in the email.
-			</p>
-			<form id="StudentCodeForm" data-bind="submit: GetCode">
-				<input type="email" data-bind="value: Email" />
-				<span data-bind="html:showSpinner"><input type="submit" value="Get Student Access Code" /></span>
-				<p data-bind="text: StatusMessage">
-			</form>
-			</p>
-		</article>
+        <article>
+            <h1>Student Tickets</h1>
+            <p>
+                Student tickets will be available soon.
+                To receive an access code for a student ticket, you will enter your email address in a field that will be available below.
+                We will verify the email address and send you the access code.
+                Further instructions will be in the email.
+            </p>
+            <p style="display: none;">
+                To receive an access code for a student ticket, enter your email address in the field below.
+                We will verify the email address and send you the access code.
+                Further instructions will be in the email.
+            </p>
+            <form id="StudentCodeForm" data-bind="submit: GetCode" style="display: none;">
+                <input type="email" data-bind="value: Email" />
+                <span data-bind="html:showSpinner"><input type="submit" value="Get Student Access Code" /></span>
+                <p data-bind="text: StatusMessage">
+            </form>
+            </p>
+        </article>
 	</section>
 
 	<!-- #include file="leftSidebar.shtml" -->

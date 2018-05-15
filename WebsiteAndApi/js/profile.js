@@ -33,7 +33,8 @@ function Session(data) {
 	Self.Title = ko.observable();
 	Self.Abstract = ko.observable();
 	Self.Notes = ko.observable();
-	Self.SessionLength = ko.observable();
+    Self.SessionLength = ko.observable();
+    Self.Level = ko.observable();
 	Self.Tags = ko.observableArray([]);
 
 	if (data) {
@@ -44,12 +45,15 @@ function Session(data) {
 		Self.Notes(data.Notes);
 		Self.SessionLength(data.SessionLength);
 
-		if (data.Tags)
-			for (var index = 0; index < data.Tags.length; ++index)
-				if (ko.isObservable(data.Tags[index]))
-					Self.Tags.push(data.Tags[index]);
-				else
-					Self.Tags.push(new Tag(data.Tags[index]));
+        if (data.Tags) {
+            for (var index = 0; index < data.Tags.length; ++index) {
+                if (ko.isObservable(data.Tags[index])) {
+                    Self.Tags.push(data.Tags[index]);
+                } else {
+                    Self.Tags.push(new Tag(data.Tags[index]));
+                }
+            }
+        }
 	}
 }
 
@@ -63,7 +67,8 @@ function ViewModel() {
 	var Self = this;
 	Self.Profile = ko.observable(new Profile());
 	Self.Sessions = ko.observableArray([]);
-	Self.PastSessions = ko.observableArray([]);
+    Self.PastSessions = ko.observableArray([]);
+    Self.Levels = ko.observableArray([]);
 	Self.Tags = ko.observableArray([]);
 	Self.SelectedSession = ko.observable(new Session());
 	Self.Verify = ko.observable();
@@ -134,8 +139,13 @@ function ViewModel() {
 			switch (TagsRequest.status) {
 				case 200:
 					var TagList = JSON.parse(TagsRequest.responseText);
-					for (var index = 0; index < TagList.length; ++index)
-						Self.Tags.push(new Tag(TagList[index]));
+                    for (var index = 0; index < TagList.length; ++index) {
+                        if ( TagList[index].Id < 4 ) {
+                            Self.Levels.push(new Tag(TagList[index]));
+                        } else {
+                            Self.Tags.push(new Tag(TagList[index]));
+                        }
+                    }
 					break;
 	
 				case 401:

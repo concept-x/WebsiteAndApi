@@ -32,7 +32,7 @@ namespace DevSpace.Database {
 					using( SqlCommand tagCommand = new SqlCommand( "INSERT SessionTags ( SessionId, TagId ) VALUES ( @SessionId, @TagId );", connection ) ) {
 						tagCommand.Parameters.Add( "SessionId", SqlDbType.Int ).Value = addedSession.Id;
 						SqlParameter tagIdParameter = tagCommand.Parameters.Add( "TagId", SqlDbType.Int );
-						foreach( ITag tag in ItemToAdd.Tags ) {
+						foreach( ITag tag in ItemToAdd.Tags.Add( addedSession.Level ) ) {
 							tagIdParameter.Value = tag.Id;
 							await tagCommand.ExecuteNonQueryAsync();
 						}
@@ -81,7 +81,11 @@ namespace DevSpace.Database {
 
 						using( SqlDataReader dataReader = await tagCommand.ExecuteReaderAsync() ) {
 							while( await dataReader.ReadAsync() ) {
-								returnValue = returnValue.AddTag( new Models.TagModel( dataReader ) );
+								ITag tag = new Models.TagModel( dataReader );
+								if( tag.Id > 4 )
+									returnValue = returnValue.UpdateLevel( tag );
+								else
+									returnValue = returnValue.AddTag( tag );
 							}
 						}
 					}
@@ -126,7 +130,10 @@ namespace DevSpace.Database {
 					sessionWithTags = session;
 
 					foreach( Tuple<int, ITag> Tag in TagData.Where( data => data.Item1 == session.Id ) ) {
-						sessionWithTags = sessionWithTags.AddTag( Tag.Item2 );
+						if( Tag.Item2.Id < 4 )
+							sessionWithTags = sessionWithTags.UpdateLevel( Tag.Item2 );
+						else
+							sessionWithTags = sessionWithTags.AddTag( Tag.Item2 );
 					}
 
 					returnList.Add( sessionWithTags );
@@ -173,7 +180,10 @@ namespace DevSpace.Database {
 						.UpdateRoom( roomList.FirstOrDefault( r => r.Id == session.RoomId ) );
 
 					foreach( Tuple<int, ITag> Tag in TagData.Where( data => data.Item1 == session.Id ) ) {
-						sessionWithTags = sessionWithTags.AddTag( Tag.Item2 );
+						if( Tag.Item2.Id < 4 )
+							sessionWithTags = sessionWithTags.UpdateLevel( Tag.Item2 );
+						else
+							sessionWithTags = sessionWithTags.AddTag( Tag.Item2 );
 					}
 
 					returnList.Add( sessionWithTags );
@@ -206,7 +216,7 @@ namespace DevSpace.Database {
 					using( SqlCommand tagCommand = new SqlCommand( "INSERT SessionTags ( SessionId, TagId ) VALUES ( @SessionId, @TagId );", connection ) ) {
 						tagCommand.Parameters.Add( "SessionId", SqlDbType.Int ).Value = ItemToUpdate.Id;
 						SqlParameter tagIdParameter = tagCommand.Parameters.Add( "TagId", SqlDbType.Int );
-						foreach( ITag tag in ItemToUpdate.Tags ) {
+						foreach( ITag tag in ItemToUpdate.Tags.Add( ItemToUpdate.Level ) ) {
 							tagIdParameter.Value = tag.Id;
 							await tagCommand.ExecuteNonQueryAsync();
 						}
