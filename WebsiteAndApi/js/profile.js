@@ -113,7 +113,7 @@ function ViewModel() {
 				case 200:
 					var SessionList = JSON.parse(SessionsRequest.responseText);
 					for (var index = 0; index < SessionList.length; ++index) {
-						if (SessionList[index].Accepted == null || (SessionList[index].Accepted && SessionList[index].Id > 110) )
+						if (SessionList[index].Accepted == null || (SessionList[index].Accepted && SessionList[index].Id > 268) )
 							Self.Sessions.push(new Session(SessionList[index]));
 						else
 							Self.PastSessions.push(new Session(SessionList[index]));
