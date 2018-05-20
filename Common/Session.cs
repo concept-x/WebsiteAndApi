@@ -18,8 +18,18 @@ namespace DevSpace.Common {
 		[DataMember]public int Id { get; private set; }
 		[DataMember]public string Notes { get; private set; }
 		[DataMember]public string Title { get; private set; }
-		[DataMember] public int SessionLength { get; private set; }
+		[DataMember]public int SessionLength { get; private set; }
 		[DataMember]public int UserId { get; private set; }
+
+		[DataMember( Name = "Level" )] private Tag _level;
+		public ITag Level {
+			get {
+				return _level;
+			}
+			private set {
+				_level = new Tag( value );
+			}
+		}
 
 		[DataMember( Name = "Tags" )]private List<Tag> _tags;
 		public ImmutableList<ITag> Tags {
@@ -92,6 +102,12 @@ namespace DevSpace.Common {
 			return newSession;
 		}
 
+		public ISession UpdateLevel( ITag value ) {
+			Session newSession = this.Clone();
+			newSession.Level = value;
+			return newSession;
+		}
+
 		public ISession AddTag( ITag value ) {
 			Session newSession = this.Clone();
 			newSession._tags.Add( new Tag( value ) );
@@ -124,6 +140,7 @@ namespace DevSpace.Common {
 				Title = string.Copy( this.Title ),
 				Abstract = string.Copy( this.Abstract ),
 				SessionLength = this.SessionLength,
+				Level = this.Level,
 				Accepted = this.Accepted
 			};
 

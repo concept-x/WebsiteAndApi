@@ -94,6 +94,7 @@
   <ItemGroup>
     <Content Include="2015\sessions.html" />
     <Content Include="2016\sessions.html" />
+    <Content Include="2017\sessions.html" />
     <Content Include="conduct.html" />
     <Content Include="blog.html" />
     <Content Include="Files\sponsors.png" />
@@ -201,6 +202,7 @@
     <Content Include="Files\sponsors.ppt" />
     <Content Include="Files\Schedule.pdf" />
     <Content Include="2016\2016sessions.json" />
+    <Content Include="2017\2017sessions.json" />
     <None Include="Properties\PublishProfiles\Staging - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\Production - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">

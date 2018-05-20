@@ -11,7 +11,7 @@
 	<!-- #include file="menu.shtml" -->
 
 	<section id="Content">
-		<article>
+		<!--article>
 			<h1>Agenda and Printable Schedule</h1>
 			<p>
 				We now have a full agenda ready.
@@ -19,9 +19,17 @@
 				It will also update if things get moved around.
 				You can view it a <a href="/schedule.html">https://www.devspaceconf.com/schedule.html</a>.
 			</p>
-		</article>
+		</article -->
 
-		<section data-bind="foreach: Sessions">
+        <article>
+            <h1>Call For Speakers Now Open</h1>
+            <p>
+                The call for speakers is now open.
+                Please visit <a href="speakers.html">the speakers page</a> for more information.
+            </p>
+        </article>
+
+		<section data-bind="foreach: Sessions" style="display: none;">
 			<article>
 				<h1 data-bind="text: Title"></h1>
 				<p data-bind="html: Abstract"></p>
@@ -33,15 +41,18 @@
 			</article>
 		</section>
 
-		<article>
-			<h1>Previous Sessions</h1>
-			<p>
-				<a href="/2015/sessions.html">Sessions from 2015</a>
-			</p>
-			<p>
-				<a href="/2016/sessions.html">Sessions from 2016</a>
-			</p>
-		</article>
+        <article>
+            <h1>Sessions From Previous Years</h1>
+            <p>
+                <a href="/2015/sessions.html">Sessions from 2015</a>
+            </p>
+            <p>
+                <a href="/2016/sessions.html">Sessions from 2016</a>
+            </p>
+            <p>
+                <a href="/2017/sessions.html">Sessions from 2017</a>
+            </p>
+        </article>
 	</section>
 
 	<!-- #include file="leftSidebar.shtml" -->
