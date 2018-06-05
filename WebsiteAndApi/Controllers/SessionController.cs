@@ -28,6 +28,7 @@ namespace DevSpace.Api.Controllers {
 			SessionData["Abstract"] = session.Abstract;
 			SessionData["Room"] = session.Room?.DisplayName;
 			SessionData["SessionLength"] = session.SessionLength;
+			SessionData["EventId"] = session.EventId;
 
 			JObject level = new JObject();
 			level["Id"] = session.Level.Id;

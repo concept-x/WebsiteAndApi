@@ -36,6 +36,7 @@ function Session(data) {
     Self.SessionLength = ko.observable();
     Self.Level = ko.observable();
 	Self.Tags = ko.observableArray([]);
+    Self.EventId = ko.observable();
 
 	if (data) {
 		Self.Id(data.Id);
@@ -43,7 +44,8 @@ function Session(data) {
 		Self.Title(data.Title);
 		Self.Abstract(data.Abstract);
 		Self.Notes(data.Notes);
-		Self.SessionLength(data.SessionLength);
+        Self.SessionLength(data.SessionLength);
+        Self.EventId(data.EventId);
 
         if (data.Tags) {
             for (var index = 0; index < data.Tags.length; ++index) {
@@ -112,8 +114,9 @@ function ViewModel() {
 			switch (SessionsRequest.status) {
 				case 200:
 					var SessionList = JSON.parse(SessionsRequest.responseText);
-					for (var index = 0; index < SessionList.length; ++index) {
-						if (SessionList[index].Accepted == null || (SessionList[index].Accepted && SessionList[index].Id > 268) )
+                    for (var index = 0; index < SessionList.length; ++index) {
+                        // HACK: Hardcoded EventId
+						if (SessionList[index].EventId == 2018)
 							Self.Sessions.push(new Session(SessionList[index]));
 						else
 							Self.PastSessions.push(new Session(SessionList[index]));
