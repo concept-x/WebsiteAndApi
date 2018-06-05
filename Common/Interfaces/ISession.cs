@@ -13,6 +13,7 @@ namespace DevSpace.Common {
 		ImmutableList<ITag> Tags { get; }
 		ITimeSlot TimeSlot { get; }
 		IRoom Room { get; }
+		int EventId { get; }
 		
 		ISession UpdateId( int value );
 		ISession UpdateUserId( int value );
@@ -26,5 +27,6 @@ namespace DevSpace.Common {
 		ISession RemoveTag( ITag value );
 		ISession UpdateTimeSlot( ITimeSlot value );
 		ISession UpdateRoom( IRoom value );
+		ISession UpdateEventId( int value );
 	}
 }

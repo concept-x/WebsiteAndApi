@@ -13,8 +13,9 @@ namespace DevSpace.Database {
 			using( SqlConnection connection = new SqlConnection( Settings.ConnectionString ) ) {
 				connection.Open();
 
+				// HACK: Currentlyhas hardcoded EventId
 				ISession addedSession = null;
-				using( SqlCommand sessionCommand = new SqlCommand( "INSERT Sessions ( UserId, Title, Abstract, Notes, SessionLength ) VALUES ( @UserId, @Title, @Abstract, @Notes, @SessionLength ); SELECT SCOPE_IDENTITY();", connection ) ) {
+				using( SqlCommand sessionCommand = new SqlCommand( "INSERT Sessions ( UserId, Title, Abstract, Notes, SessionLength, EventId ) VALUES ( @UserId, @Title, @Abstract, @Notes, @SessionLength, 2018 ); SELECT SCOPE_IDENTITY();", connection ) ) {
 					sessionCommand.Parameters.Add( "UserId", SqlDbType.Int ).Value = ItemToAdd.UserId;
 					sessionCommand.Parameters.Add( "Title", SqlDbType.VarChar ).Value = ItemToAdd.Title;
 					sessionCommand.Parameters.Add( "Abstract", SqlDbType.VarChar ).Value = ItemToAdd.Abstract;
@@ -28,6 +29,8 @@ namespace DevSpace.Database {
 					addedSession = ItemToAdd.UpdateId( Convert.ToInt32( await sessionCommand.ExecuteScalarAsync() ) );
 				}
 
+				// TODO: Make sure there is a level tag (mostly for copy)
+
 				if( 0 < addedSession.Tags.Count ) {
 					using( SqlCommand tagCommand = new SqlCommand( "INSERT SessionTags ( SessionId, TagId ) VALUES ( @SessionId, @TagId );", connection ) ) {
 						tagCommand.Parameters.Add( "SessionId", SqlDbType.Int ).Value = addedSession.Id;
@@ -39,7 +42,8 @@ namespace DevSpace.Database {
 					}
 				}
 
-				return addedSession;
+				return addedSession
+					.UpdateEventId( 2018 );
 			}
 		}
 
