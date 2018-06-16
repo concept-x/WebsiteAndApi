@@ -239,6 +239,38 @@ ALTER TABLE Sessions ALTER COLUMN SessionLength INTEGER NOT NULL;
 
 UPDATE VersionInfo SET DbVersion = '01.00.03.0000';";
 
+				case "01.00.03.0000":
+					return
+@"CREATE TABLE Events (
+	Id			INT				NOT NULL,
+	Name			VARCHAR(15)		NOT NULL,
+	StartDate	SMALLDATETIME	NOT NULL,
+	EndDate		SMALLDATETIME	NOT NULL,
+
+	CONSTRAINT Events_PK PRIMARY KEY ( Id )
+);
+
+ALTER TABLE Sessions ADD EventId INT NULL;
+
+UPDATE VersionInfo SET DbVersion = '01.00.03.0001';";
+
+				case "01.00.03.0001":
+					return
+@"INSERT Events ( Id, Name, StartDate, EndDate ) VALUES
+( 2015, 'DevSpace 2015', '2015-10-15', '2015-10-16' ),
+( 2016, 'DevSpace 2016', '2015-10-14', '2015-10-15' ),
+( 2017, 'DevSpace 2017', '2015-10-13', '2015-10-14' ),
+( 2018, 'DevSpace 2018', '2015-10-12', '2015-10-13' );
+
+UPDATE Sessions SET EventId = 2018;
+UPDATE Sessions SET EventId = 2017 WHERE Id < 269;
+UPDATE Sessions SET EventId = 2016 WHERE Id < 111;
+
+ALTER TABLE Sessions ALTER COLUMN EventId INT NOT NULL;
+ALTER TABLE Sessions ADD CONSTRAINT Sessions_Events_FK FOREIGN KEY ( EventId ) REFERENCES Events ( Id ) ON UPDATE CASCADE ON DELETE NO ACTION;
+
+UPDATE VersionInfo SET DbVersion = '01.00.03.0002';";
+
 				default:
 					return string.Empty;
 			}

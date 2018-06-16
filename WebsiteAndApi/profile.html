@@ -50,15 +50,17 @@
 			<h1>Session</h1>
 			<h2>Title</h2>
 			<input type="text" data-bind="value: SelectedSession().Title" />
-			<h2>Abstract</h2>
+			<h2>Abstract (visible to attendees)</h2>
 			<textarea data-bind="value: SelectedSession().Abstract"></textarea>
-			<h2>Notes to Reviewer</h2>
+			<h2>Notes to Reviewer (not visible to attendees)</h2>
 			<textarea data-bind="value: SelectedSession().Notes"></textarea>
 			<h2>Session Length</h2>
 			<select data-bind="value: SelectedSession().SessionLength">
 				<option value="60">60 Minutes</option>
 				<option value="30">30 Minutes</option>
 			</select>
+            <h2>Level</h2>
+            <select data-bind="options: Levels, optionsText: 'Text', value: SelectedSession().Level"></select>
 			<h2>Selected Tags (Click to Remove)</h2>
 			<ul data-bind="foreach: SelectedSession().Tags">
 				<li data-bind="text: Text, click: $root.AddOrRemoveTagToSession" />

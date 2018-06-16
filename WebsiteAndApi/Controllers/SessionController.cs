@@ -28,6 +28,12 @@ namespace DevSpace.Api.Controllers {
 			SessionData["Abstract"] = session.Abstract;
 			SessionData["Room"] = session.Room?.DisplayName;
 			SessionData["SessionLength"] = session.SessionLength;
+			SessionData["EventId"] = session.EventId;
+
+			JObject level = new JObject();
+			level["Id"] = session.Level.Id;
+			level["Text"] = session.Level.Text;
+			SessionData["Level"] = level;
 
 			SessionData["RoomId"] = session.Room?.Id;
 			SessionData["TimeSlotId"] = session.TimeSlot?.Id;
@@ -153,7 +159,7 @@ namespace DevSpace.Api.Controllers {
 
 You may continue to make changes to your session until June 15th.
 
-You should receive an email with the status of your submission on or around June 20th.",
+You should receive an email with the status of your submission on or around June 25th.",
 						postedSession.Title );
 					Mail.Send();
 
@@ -169,7 +175,7 @@ You should receive an email with the status of your submission on or around June
 
 You may continue to make changes to your session until June 15th.
 
-You should receive an email with the status of your submission on or around June 20th.",
+You should receive an email with the status of your submission on or around June 25th.",
 						postedSession.Title );
 					Mail.Send();
 

@@ -1,10 +1,10 @@
 ﻿<section id="RightSidebar" class="Sidebar">
 	<article>
 		<h1>Your Logo Here!</h1>
-		<p>Visit the Sponsors page to learn how you can help DevSpace happen.</p>
+		<p>Visit the <a href="sponsors.html">Sponsors page</a> to learn how you can help DevSpace happen.</p>
 	</article>
 
-	<article data-bind="foreach: SponsorLevels">
+	<article data-bind="foreach: SponsorLevels" style="display: none;">
 		<!-- ko if: DisplayInSidebar -->
 		<h1 data-bind="text: DisplayName"></h1>
 		<!-- ko foreach: Sponsors -->

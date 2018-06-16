@@ -33,12 +33,15 @@ namespace DevSpace.Database.Models {
 		public string Title { get; internal set; }
 		public int UserId { get; internal set; }
 		public int SessionLength { get; internal set; }
+		public ITag Level { get; internal set; }
 
 		public int TimeSlotId { get; internal set; }
 		public ITimeSlot TimeSlot { get; internal set; }
 
 		public int RoomId { get; internal set; }
 		public IRoom Room { get; internal set; }
+
+		public int EventId { get; internal set; }
 
 		public ISession UpdateAbstract( string value ) {
 			SessionModel newSession = this.Clone();
@@ -73,6 +76,12 @@ namespace DevSpace.Database.Models {
 		public ISession UpdateSessionLength( int value ) {
 			SessionModel newSession = this.Clone();
 			newSession.SessionLength = value;
+			return newSession;
+		}
+
+		public ISession UpdateLevel( ITag value ) {
+			SessionModel newSession = this.Clone();
+			newSession.Level = value;
 			return newSession;
 		}
 
@@ -117,6 +126,12 @@ namespace DevSpace.Database.Models {
 			}
 			return newSession;
 		}
+
+		public ISession UpdateEventId( int value ) {
+			SessionModel newSession = this.Clone();
+			newSession.EventId = value;
+			return newSession;
+		}
 		#endregion
 
 		private SessionModel Clone() {
@@ -126,10 +141,12 @@ namespace DevSpace.Database.Models {
 				Title = string.Copy( this.Title ),
 				Abstract = string.Copy( this.Abstract ),
 				SessionLength = this.SessionLength,
+				Level = this.Level,
 				Accepted = this.Accepted,
 				Tags = this.Tags?.ToImmutableList(),
 				TimeSlotId = this.TimeSlotId,
-				RoomId = this.RoomId
+				RoomId = this.RoomId,
+				EventId = this.EventId
 			};
 
 			if( null != this.TimeSlot )
