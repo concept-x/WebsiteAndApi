@@ -25,6 +25,7 @@ namespace DevSpace.WebsiteAndApi.Test {
 			public string LogoLarge { get; set; }
 			public string LogoSmall { get; set; }
 			public string Website { get; set; }
+			public int EventId { get; set; }
 		}
 
 		internal class TestDataStore : IDataStore<ISponsor> {
@@ -75,6 +76,7 @@ namespace DevSpace.WebsiteAndApi.Test {
 					DisplayInEmails = false,
 					DisplayInSidebar = false
 				},
+				EventId = DateTime.Now.Year
 			} );
 			Expected.Add( new TestSponsor {
 				Id = 2,
@@ -89,6 +91,7 @@ namespace DevSpace.WebsiteAndApi.Test {
 					DisplayInEmails = false,
 					DisplayInSidebar = false
 				},
+				EventId = DateTime.Now.Year
 			} );
 
 			TestDataStore testDataStore = new TestDataStore();
@@ -128,6 +131,7 @@ namespace DevSpace.WebsiteAndApi.Test {
 			Assert.AreEqual( Expected.LogoLarge, Actual.LogoLarge );
 			Assert.AreEqual( Expected.LogoSmall, Actual.LogoSmall );
 			Assert.AreEqual( Expected.Website, Actual.Website );
+			Assert.AreEqual( Expected.EventId, Actual.EventId );
 			AssertSponorLevelsAreEqual( Expected.Level, Actual.Level );
 		}
 

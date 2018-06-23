@@ -15,5 +15,6 @@ namespace DevSpace.Common {
 		[DataMember]public string LogoLarge { get; private set; }
 		[DataMember]public string LogoSmall { get; private set; }
 		[DataMember]public string Website { get; private set; }
+		[DataMember]public int EventId { get; private set; }
 	}
 }

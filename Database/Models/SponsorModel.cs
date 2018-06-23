@@ -20,5 +20,6 @@ namespace DevSpace.Database.Models {
 		public string LogoLarge { get; internal set; }
 		public string LogoSmall { get; internal set; }
 		public string Website { get; internal set; }
+		public int EventId { get; internal set; }
 	}
 }

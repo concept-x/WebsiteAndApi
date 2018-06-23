@@ -271,6 +271,21 @@ ALTER TABLE Sessions ADD CONSTRAINT Sessions_Events_FK FOREIGN KEY ( EventId ) R
 
 UPDATE VersionInfo SET DbVersion = '01.00.03.0002';";
 
+				case "01.00.03.0002":
+					return
+@"ALTER TABLE Sponsors ADD EventId INT NULL;
+
+UPDATE VersionInfo SET DbVersion = '01.00.03.0003';";
+
+				case "01.00.03.0003":
+					return
+@"UPDATE Sponsors SET EventId = 2017;
+
+ALTER TABLE Sponsors ALTER COLUMN EventId INT NOT NULL;
+ALTER TABLE Sponsors ADD CONSTRAINT Sponsors_Events_FK FOREIGN KEY ( EventId ) REFERENCES Events ( Id ) ON UPDATE CASCADE ON DELETE NO ACTION;
+
+UPDATE VersionInfo SET DbVersion = '01.00.03.0004';";
+
 				default:
 					return string.Empty;
 			}
