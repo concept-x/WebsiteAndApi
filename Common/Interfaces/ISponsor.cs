@@ -6,5 +6,6 @@
 		string LogoLarge { get; }
 		string LogoSmall { get; }
 		string Website { get; }
+		int EventId { get; }
 	}
 }

@@ -4,7 +4,7 @@
 		<p>Visit the <a href="sponsors.html">Sponsors page</a> to learn how you can help DevSpace happen.</p>
 	</article>
 
-	<article data-bind="foreach: SponsorLevels" style="display: none;">
+	<article data-bind="foreach: SponsorLevels">
 		<!-- ko if: DisplayInSidebar -->
 		<h1 data-bind="text: DisplayName"></h1>
 		<!-- ko foreach: Sponsors -->
