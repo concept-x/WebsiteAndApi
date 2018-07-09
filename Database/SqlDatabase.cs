@@ -286,6 +286,13 @@ ALTER TABLE Sponsors ADD CONSTRAINT Sponsors_Events_FK FOREIGN KEY ( EventId ) R
 
 UPDATE VersionInfo SET DbVersion = '01.00.03.0004';";
 
+				case "01.00.03.0004":
+					return
+@"ALTER TABLE Sponsors ALTER COLUMN LogoSmall VARCHAR( 200 ) NOT NULL;
+ALTER TABLE Sponsors ALTER COLUMN LogoLarge VARCHAR( 200 ) NOT NULL;
+
+UPDATE VersionInfo SET DbVersion = '01.00.03.0005';";
+
 				default:
 					return string.Empty;
 			}

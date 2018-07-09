@@ -21,16 +21,7 @@
 			</p>
 		</article -->
 
-        <article>
-            <h1>Coming Soon</h1>
-            <p>
-                The call for speakers has officially closed.
-                This page will be filled with our line-up once we finish the daunting task of going through all the awesome.
-                We hope to have it ready for July 8th, but keep an eye on <a href="speakers.html">the speakers page</a> for updates.
-            </p>
-        </article>
-
-		<section data-bind="foreach: Sessions" style="display: none;">
+		<section data-bind="foreach: Sessions"">
 			<article>
 				<h1 data-bind="text: Title"></h1>
 				<p data-bind="html: Abstract"></p>

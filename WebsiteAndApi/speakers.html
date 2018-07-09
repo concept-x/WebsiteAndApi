@@ -11,7 +11,7 @@
 	<!-- #include file="menu.shtml" -->
 
 	<section id="Content">
-        <article>
+        <article style="display: none;">
             <h1>Call For Speakers Now Closed</h1>
             <p>
                 Our call for speakers is now closed.
@@ -108,7 +108,7 @@
             <input type="button" onclick="window.location.href = '/login.html';" value="Submit Your Masterpieces!" />
         </article>
 
-		<section data-bind="foreach: Profiles" style="display: none;">
+		<section data-bind="foreach: Profiles">
 			<article>
 				<h1 data-bind="text: DisplayName"></h1>
 				<p data-bind="html: Bio"></p>

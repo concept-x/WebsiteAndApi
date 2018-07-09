@@ -88,9 +88,11 @@ namespace DevSpace.Api.Controllers {
 			try {
 				IList<ISession> Sessions = ( await _DataStore.GetAll() )
 					.Where( ses => ses.Accepted ?? false )
-					.Where( ses => ( ses.TimeSlot?.EndTime.Year ?? DateTime.MaxValue.Year ) > 2016 )
-					.OrderBy( ses => ( ses.TimeSlot?.EndTime ?? DateTime.MaxValue ) )
-					.ThenBy( ses => ( ses.Room?.DisplayName ?? string.Empty ) )
+					.Where( ses => ses.EventId == 2018 )
+					.OrderBy( ses => ses.Title )
+//					.Where( ses => ( ses.TimeSlot?.EndTime.Year ?? DateTime.MaxValue.Year ) > 2016 )
+//					.OrderBy( ses => ( ses.TimeSlot?.EndTime ?? DateTime.MaxValue ) )
+//					.ThenBy( ses => ( ses.Room?.DisplayName ?? string.Empty ) )
 					.ToList();
 
 				HttpResponseMessage Response = new HttpResponseMessage( HttpStatusCode.OK );
@@ -118,9 +120,11 @@ namespace DevSpace.Api.Controllers {
 			try {
 				IList<ISession> Sessions = ( await _DataStore.GetAll() )
 					.Where( ses => ses.Accepted ?? false )
-					.Where( ses => ( ses.TimeSlot?.EndTime.Year ?? DateTime.MaxValue.Year ) > 2016 )
-					.OrderBy( ses => ( ses.TimeSlot?.EndTime ?? DateTime.MaxValue ) )
-					.ThenBy( ses => ( ses.Room?.DisplayName ?? string.Empty ) )
+					.Where( ses => ses.EventId == 2018 )
+					.OrderBy( ses => ses.Title )
+//					.Where( ses => ( ses.TimeSlot?.EndTime.Year ?? DateTime.MaxValue.Year ) > 2016 )
+//					.OrderBy( ses => ( ses.TimeSlot?.EndTime ?? DateTime.MaxValue ) )
+//					.ThenBy( ses => ( ses.Room?.DisplayName ?? string.Empty ) )
 					.ToList();
 
 				HttpResponseMessage Response = new HttpResponseMessage( HttpStatusCode.OK );
