@@ -293,6 +293,12 @@ ALTER TABLE Sponsors ALTER COLUMN LogoLarge VARCHAR( 200 ) NOT NULL;
 
 UPDATE VersionInfo SET DbVersion = '01.00.03.0005';";
 
+				case "01.00.03.0005":
+					return
+@"INSERT Events ( Id, Name, StartDate, EndDate ) VALUES
+( 2019, 'DevSpace 2019', '2015-10-11', '2015-10-12' );
+
+UPDATE VersionInfo SET DbVersion = '01.00.03.0006';";
 				default:
 					return string.Empty;
 			}
